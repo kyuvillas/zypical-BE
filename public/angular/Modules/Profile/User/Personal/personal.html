@@ -1,0 +1,31 @@
+<form>
+<div layout-padding layout-margin>
+	 <span class="md-title">Personal Information</span>
+
+	 <md-divider></md-divider>
+	 <div hud-setter width-in-percent="50" layout="column" layout-align="start start">
+		 <div><span>Profile Picture: </span> 
+		 <input  multiple type = "file" file-model = "myFile" >
+		 </div><br>
+        <md-input-container>
+          <label>First Name</label>
+          <input type="text" required ng-model="fname" >
+        </md-input-container>
+        <md-input-container   >
+          <label>Last Name</label>
+          <input type="text" required ng-model="lname">
+         </md-input-container><br>
+		 <md-input-container>
+		    <label>Username</label>
+		    <input type="text" ng-model="username">
+		 </md-input-container><br>
+		 <md-input-container  >
+		    <label>Email Address</label>
+		    <input type="text" ng-model="emailaddress">
+		 </md-input-container>
+	 </div>
+	 <md-divider></md-divider>
+	 <md-button class="md-fab" ng-click="save()"><i class="fa fa-check"></i></md-button>
+
+</div>
+</form>

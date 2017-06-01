@@ -1,0 +1,81 @@
+<div flex layout="row"   layout-align="space-around center" style="min-height: 85%;" >
+	<div flex ></div>
+	<div flex="80" ng-cloak="" class="gridListdemoBasicUsage" >
+		<div layout="row"   layout-align="end center">
+			<md-input-container>
+	          <label>Filter</label>
+	          <md-select ng-model="selet" >
+	            <!-- <md-option><em>None</em></md-option> -->
+	            <md-option ng-repeat="rr in results" >
+	              {{rr.price}}
+	            </md-option>
+	          </md-select>
+	        </md-input-container>
+		</div>
+		<!-- RIGHT SIDE: RANGE OF PRICE, filter -->
+
+		 <md-grid-list md-cols="4" md-row-height="1:1" md-gutter="1%" >
+		    <md-grid-tile ng-if="results != 'null'" ng-repeat="r in results track by $index" layout="column" layout-align="start stretch">
+				  <md-card >
+			        <md-card-header  hud-setter height-in-percent="10">
+			          <md-card-avatar>
+			            <img ng-src="assets/images/sample.jpg"   class="img-circle item-shop-img" />
+			          </md-card-avatar>
+			          <md-card-header-text>
+			            <span class="md-title">{{r.shopname}}</span>
+			            <div>
+			            	<span class="badge">COD</span>
+				            <span class="badge">Meetup</span>
+				            <span class="badge">Ship</span>
+			            </div>            
+			          </md-card-header-text>
+			        </md-card-header>
+
+			        <img ng-src="../index.php/shop_controller/getProductImg?img={{r.imgname}}" class="product-img md-card-image">
+
+			        <md-card-title>
+			          <md-card-title-text>
+			          	<div>
+				          	<span class="md-headline">{{r.name}}</span>
+				          	<!-- <i class="save-ribbon fa fa-bookmark"></i> -->
+				          </div>
+			            
+			            <span class="md-subhead">11 days ago</span>
+			          </md-card-title-text>
+			        </md-card-title>
+			      	<div class="price">₱ {{r.price}}</div>
+			      </md-card>
+			</md-grid-tile>
+			<md-grid-tile style="box-shadow:none;padding:0">
+			  	<md-button ng-click="showDialog($event)" style="height:100%;width: 100%"><i class="fa fa-plus" style="font-size:400%;color:gray"></i></md-button>
+			  </md-grid-tile>
+		 </md-grid-list>
+
+
+
+
+
+		<!-- <md-grid-list md-cols="5" md-row-height="5:6" md-gutter="3%" >
+
+		    <md-grid-tile ng-repeat="r in results" result-div class="result-item">
+			  <div >
+			  	<img src="assets/images/sample.jpg" />
+			  </div>
+			  <md-grid-tile-footer>
+			  	<div layout="column"   layout-align="start start" class="product-title">
+			  		<div layout="row" style="width: 100%"  layout-align="space-between start">
+				  		<b>₱ {{r.price}}</b>
+				  		<i class="fa fa-truck" style="position: right;color:yellowgreen"></i>
+			  		</div>
+				    
+				    <p>{{r.name}}</p>
+				    <img src="assets/images/vendor.jpg" style="border-radius: 50%;height: 50%; width: 20%;" />
+			    </div>
+			  </md-grid-tile-footer>
+			</md-grid-tile>
+
+		  </md-grid-list> -->
+	</div>
+	<div flex></div>
+	
+</div>

@@ -1,0 +1,93 @@
+<md-dialog style="height:70%;width: 70% !important; " >
+<form>
+  <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="end center">
+        <h2 style="color:whitesmoke">Add a product</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()" style="color:whitesmoke">
+          <i  class="fa fa-close"/>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+
+<div layout="row" layout-align="start center">
+	<div flex="30" style="font-size:13px;padding:4% 0 0 3%; ">
+
+        <md-input-container  style="width:90%" >
+            <label>Product Name</label>
+            <input type="text" ng-model="name">
+          </md-input-container>
+          <md-input-container  style="width:90%" >
+            <label>Description</label>
+            <input type="text" ng-model="desc">
+          </md-input-container>
+          <md-input-container  style="width:90%" >
+            <label>Category</label>
+            <input type="text" ng-model="category">
+          </md-input-container>
+          <md-input-container  style="width:90%">
+            <label>Price</label>
+            <input type="text" ng-model="price">
+          </md-input-container>
+
+
+	</div>
+	<div flex style="height:85%;padding:4%" layout="column" layout-align="start start">
+      <input multiple id="products" hidden type = "file" file-model-multiple = "myFile" onchange="display2()"/>
+      <span flex="10" id="maxImg" class="warning">maximum of 5 images</span>
+    <div flex="90" hud-setter width-in-percent="100" height-in-percent="100">
+         <md-button ng-click="buttonupload()" style="height: auto; padding: 2%;"><i class="fa fa-plus"></i> Add image</md-button>
+      
+  		<md-grid-list   md-cols="5" md-row-height="2:2" md-gutter="1%" id="output" >				   
+  			  <md-grid-tile style="box-shadow:none;padding:0">
+            <img class='thumb' id="img0" />
+          </md-grid-tile>
+
+          <md-grid-tile style="box-shadow:none;padding:0">
+            <img class='thumb' id="img1" />
+          </md-grid-tile>
+
+          <md-grid-tile style="box-shadow:none;padding:0">
+            <img class='thumb' id="img2" />
+          </md-grid-tile>
+
+          <md-grid-tile style="box-shadow:none;padding:0">
+            <img class='thumb' id="img3"  />
+          </md-grid-tile>
+
+          <md-grid-tile style="box-shadow:none;padding:0">
+            <img class='thumb' id="img4"  />
+          </md-grid-tile>
+  		 </md-grid-list>
+     </div>
+	</div>
+</div>
+<md-dialog-actions layout="row" layout-align="end center">
+  <md-button ng-click="upload()" md-autofocus   >
+      Add Product
+    </md-button>
+</md-dialog-actions>
+</form>
+</md-dialog>
+<script>
+
+function display2(){
+  var fileUpload = document.getElementById("products"); 
+  var count=0;
+  if(fileUpload.files.length <= 5 ){
+    count = fileUpload.files.length;
+    $('#maxImg').hide();
+  }else{
+    count = 5;
+    $('#maxImg').show();
+  }
+
+  for (var i = 0; i < count; i++) {
+    $('#img'+i).attr('src', window.URL.createObjectURL(fileUpload.files[i]));
+  }
+
+}
+
+
+</script>

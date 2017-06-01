@@ -1,0 +1,101 @@
+<md-dialog >
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="end center">
+        <!-- <h2>Mango (Fruit)</h2>
+        <span flex></span> -->
+        <md-button class="md-icon-button" ng-click="closeDialog()" style="color:whitesmoke">
+          <!-- <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon> -->
+          <i  class="fa fa-close"/>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab">
+        <md-tab label="LOGIN">
+          <md-content class="md-padding">
+            <form name="loginForm">
+              <md-input-container  style="width:90%" >
+                <label>Username</label>
+                <input type="text" ng-model="login.username">
+              </md-input-container>
+              <br>
+              <md-input-container  style="width:90%">
+                <label>Password</label>
+                <input type="password" ng-model="login.password">
+              </md-input-container>
+            </form>
+          </md-content>
+        </md-tab>
+        <md-tab label="SIGNUP">
+          <md-content class="md-padding">
+            <form name="signupForm">              
+              <div layout='row' layout-align="space-between center" style="width:90%">
+                <md-input-container   >
+                  <label>First Name</label>
+                  <input type="text" required ng-model="signup_fname" ng-value="queenie">
+                  <div ng-messages="signupForm.signup_username.$error">
+                    <div ng-message="required">This is required!</div>
+                  </div>
+                </md-input-container>
+                <md-input-container   >
+                  <label>Last Name</label>
+                  <input type="text" required ng-model="signup_lname" value="villasin">
+                  <div ng-messages="signupForm.signup_lname.$error">
+                    <div ng-message="required">This is required!</div>
+                  </div>
+                  </md-input-container>
+              </div>
+              <md-radio-group ng-required="true" style="width:90%" ng-model="signup_gender" layout='row' layout-align="start center">
+              Gender
+                <md-radio-button style="margin-left:10px" required value="Female" ng-model="signup_gender" class="md-primary" checked="checked">Female</md-radio-button>
+                <md-radio-button  value="Male" required class="md-primary" ng-model="signup_gender"> Male 
+                
+                </md-radio-button>
+              </md-radio-group>
+              <md-input-container   style="width:90%" >
+                <label>Username</label>
+                <input type="text" required ng-model="signup_username" value="qq">
+                <div ng-messages="signupForm.signup_username.$error">
+                    <div ng-message="required">This is required!</div>
+                  </div>
+              </md-input-container>
+              <md-input-container  style="width:90%">
+                <label>Password</label>
+                <input type="password" required ng-model="signup_pass" value="password">
+                <div ng-messages="signupForm.signup_pass.$error">
+                    <div ng-message="required">This is required!</div>
+                  </div>
+              </md-input-container>
+              <md-input-container required style="width:90%" >
+                <label>Email address</label>
+                <input type="text" required ng-model="signup_emailadd" value="qq@zypical.com">
+                <div ng-messages="signupForm.signup_emailadd.$error">
+                    <div ng-message="required">This is required!</div>
+                  </div>
+              </md-input-container>
+            </form>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" >
+    <!-- //style="background-color: #31589C" -->
+      <md-button ng-if="selectedTab=='0'" target="_blank" >
+        <i class="fa fa-facebook-square"></i> LOGIN WITH FACEBOOK
+      </md-button>
+      <md-button ng-if="selectedTab=='1'" target="_blank" >
+        <i class="fa fa-facebook-square"></i> SIGNUP WITH FACEBOOK
+      </md-button>
+
+      <span flex></span>
+      <md-button ng-click="login_submit()" style="margin-right:20px;" md-autofocus  ng-if="selectedTab=='0'">
+        LOGIN
+      </md-button>
+      <md-button ng-click="signup()" style="margin-right:20px;" md-autofocus ng-if="selectedTab=='1'"  >
+        SIGNUP
+      </md-button>
+      
+    </md-dialog-actions>
+
+</md-dialog>

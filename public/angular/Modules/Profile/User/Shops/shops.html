@@ -1,0 +1,58 @@
+<md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab" md-stretch-tabs="always">
+        <md-tab label="Shops you manage" >
+          <md-content class="md-padding">
+            <md-list>
+              <md-subheader class="md-no-sticky">Shops you manage</md-subheader>
+              <md-list-item class="md-3-line" ng-repeat="s in shops" ng-if="shops != 'null'" ng-click="gotoShop(s.shopid)" style="height:10% ;padding: 1%;">
+                <div class="md-list-item-text" layout="row" layout-align="start start" >
+                  <div hud-setter width-in-percent="10">
+                    <img ng-src="assets/images/sample.jpg"  alt="{{s.name}}" class="img-circle" >
+                  </div>
+                  
+                
+                <div>
+                  <h3>{{s.name}}</h3>
+                </div>
+                <!-- <md-button ng-click="secondaryAction(item)" style="margin-right:150px" class="md-secondary">secondary</md-button>
+                <md-button ng-click="tertiaryAction(item)" class="md-secondary"> tertiary</md-button> -->
+                </div>
+                  
+                
+              </md-list-item>
+              <md-list-item class="md-3-line"  ng-click="showDialog($event)" >
+                <div class="md-list-item-text" layout="row" layout-align="center center">
+                    <div flex class="title-secondary center" n> create an online shop</div>
+                </div>
+                
+              </md-list-item>
+            </md-list>
+          </md-content>
+        </md-tab>
+        <md-tab label="Saved Shops">
+          <md-content class="md-padding">
+            
+          </md-content>
+        </md-tab>
+        <md-tab label="Saved Products">
+          <md-content class="md-padding">
+            
+          </md-content>
+        </md-tab>
+      </md-tabs>
+
+
+
+
+
+<style>
+	md-list-item{
+		height:10% !important;
+		color:black;
+	}
+	.md-list-item-text h3{
+		color:black !important;
+	}
+  .center{
+    text-align: center
+  }
+</style>

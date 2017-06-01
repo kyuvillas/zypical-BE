@@ -1,0 +1,49 @@
+<div flex layout="row"   layout-align="start start" style="padding-top: 10">
+	<div flex layout="column" layout-align="start start" layout-padding hud-setter height-in-percent="100">
+		<div class="profile-left" layout="column">
+			<div flex layout="column" layout-align="start center">
+				<h2>{{Name}}</h2>
+				<p class="md-subhead">@{{user.username}}</p>
+
+				<img  ng-src="../index.php/pics/getUserImg?img={{user.profilepic}}" class="img-profile" ng-if="user.profilepic!=''"/>
+				<div layout="column" layout-align="center center" ng-if="user.profilepic==''" class="img-profile-placeholder">
+					<i class="fa fa-user fa-3x"></i>
+					<a ng-click="buttonupload()" href="">Change Profile Picture</a>
+					<!-- <input hidden type="file" id="upload"/> -->
+				</div>
+			    <md-button ng-click="ChangeState('userprofile.shops')" hud-setter width-in-percent="100">
+			        Shops you manage
+			    </md-button>
+			    <md-button ng-click="ChangeState('userprofile.personal')" hud-setter width-in-percent="100">
+			        Personal Information
+			    </md-button>
+			</div>
+		</div>
+		
+	</div>
+	<div flex="60">
+		<md-card md-theme-watch="" class="profile-md-card">
+			<div ui-view></div>
+		</md-card>
+	</div>
+	<div flex class="profile-right">
+		<!-- <div>
+			<md-card >
+	          	<span class="title-secondary small">SAVED SHOPS</span>
+	            Phone/Tablet
+		    </md-card>
+
+			<md-card >
+		       
+		        <span class="title-secondary small">about</span>
+	            <p>Legit Seller of Perfect Copy Made Phones<br>
+				IG : mnlphoneshop_<br>
+				Sms/Viber: 09396387948.<br>
+				-Apple<br>
+				-Samsung<br>
+				-Sony and Many more are Available here.</p>
+		         
+		      </md-card>
+		</div> -->
+	</div>
+</div>

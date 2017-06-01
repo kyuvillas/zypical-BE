@@ -1,0 +1,73 @@
+<md-dialog hud-setter width-in-percent="45"  >
+  <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="end center">
+        <h2 style="color:whitesmoke">Edit Shop</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()" style="color:whitesmoke">
+          <i  class="fa fa-close"/>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  <div layout-padding layout-margin >
+    <form name='updateform'>
+       <div layout="column" layout-align="start start">
+         <md-input-container><span>Profile Picture: </span> 
+         <input  multiple type="file" file-model="myFile" accept="image/*">
+         <div ng-show="max">
+            <div ng-message="max">Exceed maximum file size of 350KB</div>
+          </div>
+         <div ng-show="type">
+            <div ng-message="type">Select an image</div>
+          </div>
+
+         </md-input-container>  
+         <md-input-container  hud-setter  width-in-percent="100" layout="row" layout-align="space-between center">
+          <span style="margin-bottom: 16">Delivery Method:</span>
+          <md-checkbox ng-repeat="i in items" ng-checked="exists(i, selected)" ng-click="toggle(i, selected)">
+            {{i}}
+          </md-checkbox>
+          <!-- <md-checkbox ng-checked="exists('Meet up', selected)" ng-click="toggle(i, selected)">
+            Meet up 
+          </md-checkbox>
+          <md-checkbox ng-checked="exists('COD', selected)" ng-click="toggle('COD', selected)">
+            Cash on Delivery 
+          </md-checkbox> -->
+        </md-input-container>         
+         <md-content hud-setter  width-in-percent="100">
+            <md-input-container  hud-setter width-in-percent="90">
+              <label>Facebook username</label>
+               <md-icon class="fa fa-facebook-square fa-2x"></md-icon>
+              <input type="text" ng-model="fb" hud-setter width-in-percent="100">
+           </md-input-container>
+        </md-content>
+
+        <md-content hud-setter  width-in-percent="100">
+            <md-input-container  hud-setter width-in-percent="90">
+              <label>Instagram username</label>
+               <md-icon class="fa fa-instagram fa-2x"></md-icon>
+              <input type="text" ng-model="insta" hud-setter width-in-percent="100">
+           </md-input-container>
+        </md-content>
+
+        <md-content hud-setter  width-in-percent="100">
+         <md-input-container hud-setter  width-in-percent="90">
+              <label>Say something about your shop</label>
+               <md-icon class="fa fa-pencil fa-2x"></md-icon>
+              <textarea ng-model="description" md-maxlength="150" rows="2" md-select-on-focus="" hud-setter width-in-percent="100"></textarea>
+          </md-input-container>
+        </md-content>
+
+        
+         
+       </div>
+
+    </form>
+  </div>
+
+  <md-dialog-actions layout="row" layout-align="end center">
+    <md-button ng-click="updateStore()" md-autofocus ng-disabled="updateform.$valid==false"  >
+        Update
+      </md-button>
+  </md-dialog-actions>
+</md-dialog>
