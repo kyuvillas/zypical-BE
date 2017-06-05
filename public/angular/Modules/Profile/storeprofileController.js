@@ -1,4 +1,4 @@
-app.controller('StoreProfileController', function ($window,$http,$stateParams,$state, $scope, $interval, $mdDialog, ConfigurableItems, DataFactory, $mdSidenav) {
+app.controller('StoreProfileController', function ($http,$stateParams,$state, $scope, $interval, $mdDialog, ConfigurableItems, DataFactory, $mdSidenav) {
     $scope.SVG = ConfigurableItems.SVG;
 
     $scope.ostat = 2;
@@ -24,7 +24,6 @@ app.controller('StoreProfileController', function ($window,$http,$stateParams,$s
       DataFactory.GetShop($stateParams.id)
       .then(function(res){
         $scope.shop = res.data[0];
-        $scope.delivery = JSON.parse(res.data[0].delivery);
         console.log( $scope.shop);
 
       });
@@ -41,18 +40,20 @@ app.controller('StoreProfileController', function ($window,$http,$stateParams,$s
        $mdDialog.show({
          parent: parentEl,
          targetEvent: $event,
-         templateUrl:'angular/Modules/Profile/Store/upload-product.html',
+         templateUrl:'angular/Modules/Profile/upload-product.html',
          locals: {
+           items: $scope.items
          },
          controller: DialogController,
          clickOutsideToClose: true,
   		escapeToClose: true
       });
-      function DialogController($scope, $mdDialog) {
-        
+      function DialogController($scope, $mdDialog, items) {
+        $scope.items = items;
         $scope.closeDialog = function() {
           $mdDialog.hide();
         }
+
         $scope.upload = function(){
 
            var fd = new FormData();
@@ -90,7 +91,7 @@ app.controller('StoreProfileController', function ($window,$http,$stateParams,$s
         };
       }
     }
-    // showEditDialog();
+    showEditDialog();
     function showEditDialog($event){
        var parentEl = angular.element(document.body);
        $mdDialog.show({
@@ -98,60 +99,47 @@ app.controller('StoreProfileController', function ($window,$http,$stateParams,$s
          targetEvent: $event,
          templateUrl:'angular/Modules/Profile/Store/editshop.html',
          locals: {
-          shop: $scope.shop
          },
          controller: editDialogController,
          clickOutsideToClose: true,
       escapeToClose: true
       });
-      function editDialogController($scope, $mdDialog,$window,shop) {
-         $scope.selected = JSON.parse(shop.delivery);
-         $scope.fb  = shop.fb;
-         $scope.insta  = shop.ig;
-         $scope.delivery  = $scope.delivery = JSON.parse(shop.delivery);
-         $scope.description  = shop.about;
-
-         console.log($scope.selected);
-         $scope.items= ["Shipment", "Meet up", "COD"];
+      function editDialogController($scope, $mdDialog) {
         $scope.closeDialog = function() {
           $mdDialog.hide();
         }
-
-          $scope.toggle = function (item, list) {
-            var idx = list.indexOf(item);
-            if (idx > -1) {
-              list.splice(idx, 1);
-            }
-            else {
-              list.push(item);
-            }
-          };
-
-          $scope.exists = function (item, list) {
-            return list.indexOf(item) > -1;
-          };
-
-          $scope.updateStore = function(){
-            var fd = new FormData();
-             fd.append('shop_id', $stateParams.id);
-             fd.append('fb', $scope.fb);
-             fd.append('insta', $scope.insta);
-             fd.append('delivery', JSON.stringify($scope.selected));
-             fd.append('description', $scope.description);     
-             fd.append('displaypic', $scope.myFile);
-
-             DataFactory.UpdateStore(fd)
-            .success(function(d){
-             // $window.location.reload();
-             // $route.reload();
-             $window.location.reload();
-                $mdDialog.hide();
-                console.log(d);
-              }).error(function(d){
-                console.log(d);
-              })
+        $scope.items = [1,2,3,4,5];
+        $scope.selected = [1];
+        $scope.toggle = function (item, list) {
+          var idx = list.indexOf(item);
+          if (idx > -1) {
+            list.splice(idx, 1);
           }
-          
+          else {
+            list.push(item);
+          }
+        };
+
+        $scope.exists = function (item, list) {
+          return list.indexOf(item) > -1;
+        };
+
+        $scope.isIndeterminate = function() {
+          return ($scope.selected.length !== 0 &&
+              $scope.selected.length !== $scope.items.length);
+        };
+
+        $scope.isChecked = function() {
+          return $scope.selected.length === $scope.items.length;
+        };
+
+        $scope.toggleAll = function() {
+          if ($scope.selected.length === $scope.items.length) {
+            $scope.selected = [];
+          } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
+            $scope.selected = $scope.items.slice(0);
+          }
+        };
         $scope.upload = function(){
 
            var fd = new FormData();

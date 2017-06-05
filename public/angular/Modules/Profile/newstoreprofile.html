@@ -1,0 +1,135 @@
+<div layout="row"   layout-align="center stretch" hud-setter height-in-percent="100" layout-margin>
+	<div flex ></div>
+	<div flex="60" layout="column" layout-align="start stretch">
+		<div  hud-setter height-in-percent="30"  minheight-in-percent="30" layout="row" layout-align="center stretch">
+			<div flex="35" layout="column" layout-align="center center" layout-padding >
+				<div flex="90" layout="column" layout-align="center center" width-in-percent="65" hud-setter> 
+					<img  ng-src="../index.php/pics/shopdp?img={{shop.displaypic}}" ng-if="shop.displaypic != ''"  class="img-circle" height-in-percent="70" hud-setter width-in-percent="90"/>
+					<div class="img-circle img-profile-placeholder" ng-if="shop.displaypic == ''" height-in-percent="70" hud-setter  layout="column" layout-align="center center">
+						<i class="fa fa-user"></i>
+					</div>
+				</div>
+				
+				<a flex href="" style="margin-bottom: 8">Change Display Picture</a>
+			</div>
+			<div flex="70" layout-padding  layout="row" layout-align="start start">
+				<div flex="70" layout="column" layout-align="start start" hud-setter height-in-percent="100">
+					<div  flex="30" layout-padding hud-setter width-in-percent="100" layout="row" layout-align="start start">
+						<div hud-setter in-block style="padding: 0 8">
+							<span class="md-title" style="font-size: 32px;">{{shop.name}}</span>
+						</div>
+						
+					</div>
+					<div flex="20" layout-padding hud-setter font-in-percent="120">
+						<span><b>{{products.length}}</b> products</span>
+						<span><b>{{products.length}}</b> categories</span>
+					</div>
+					<div flex="40" class="sub-text">
+						<p hud-setter padding="0"  margin="0" ng-if="shop.about !=''">{{shop.about}}</p>
+						<a class="decor-none md-subhead" ng-if="shop.about ==''" href="" ng-click="showEdit()">
+							<i class="fa fa-pencil"></i>
+							add description
+						</a>
+
+						<br>
+	    				<p hud-setter padding="0"  margin="0" ng-if="shop.delivery !=''" >
+	    					<i class="fa fa-truck"></i>: Cash on Delivery, Meet-up, Ship
+	    				</p>
+	    				<a class="decor-none md-subhead" ng-if="shop.delivery ==''" href="" ng-click="showEdit()">
+							<i class="fa fa-pencil"></i>
+							add delivery method
+						</a>
+					</div>
+					<div flex="10" style="margin-bottom: 8"><a  href="" ng-click="showEdit()">Edit Info</a></div>
+				</div>
+				<div flex class="sub-text"  layout="column" layout-align="start stretch" layout-padding layout-margin><!-- 
+	    				<span><i class="fa fa-facebook"></i>: www.fb.com/sample</span><br>
+	    				<i class="fa fa-instagram"></i>:  @sample-->
+	    				<div flex></div>
+	    				<md-button ng-click="" hud-setter padding="0"  margin="0" style="background-color: rgb(1,169,130);color: whitesmoke">
+					        SAVE STORE <i class="fa fa-check"></i>
+					    </md-button>
+					    <br>
+	    				<md-button ng-click="" hud-setter padding="0"  margin="0" ng-if="shop.fb !=''" ng-click="showEdit()">
+					        <i class="fa fa-facebook"></i> @sample
+					    </md-button>					    
+					    <md-button ng-click="" hud-setter padding="0"  margin="0" ng-if="shop.ig !=''" ng-click="showEdit()">
+					        <i class="fa fa-instagram"></i>: @sample
+					    </md-button>
+					    <a class="decor-none md-subhead" ng-if="shop.fb ==''" href="" ng-click="showEdit()">
+							<i class="fa fa-facebook"></i>
+							add fb info
+						</a>
+					    <a class="decor-none md-subhead" ng-if="shop.ig ==''" href="" ng-click="showEdit()">
+							<i class="fa fa-instagram"></i>
+							add insta info
+						</a>
+					    <div flex></div>
+					    
+				</div>
+				
+			</div>
+		</div>
+		<div  >
+		<!-- md-stretch-tabs="always" -->
+
+		<md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab" md-stretch-tabs="always">
+        <md-tab label="all products" >
+          <md-content class="md-padding">
+            <md-grid-list md-cols="3" md-row-height="1:1" md-gutter="1%" >
+				    <md-grid-tile ng-if="products != 'null'" ng-repeat="r in products track by $index" layout="column" layout-align="start stretch">
+						  <md-card >
+					        <md-card-header  hud-setter height-in-percent="10">
+					          <md-card-avatar>
+					            <img ng-src="assets/images/sample.jpg"   class="img-circle item-shop-img" />
+					          </md-card-avatar>
+					          <md-card-header-text>
+					            <span class="md-title">{{shop.name}}</span>
+					            <div>
+					            	<span class="badge">COD</span>
+						            <span class="badge">Meetup</span>
+						            <span class="badge">Ship</span>
+					            </div>
+					            
+					            
+					          </md-card-header-text>
+					        </md-card-header>
+					        <img ng-src="../index.php/shop_controller/getProductImg?img={{r.imgname}}" class="product-img md-card-image">
+					        <md-card-title>
+					          <md-card-title-text>
+					          	<div>
+						          	<span class="md-headline">{{r.name}}</span>
+						          	<!-- <i class="save-ribbon fa fa-bookmark"></i> -->
+						          </div>
+					            
+					            <span class="md-subhead">11 days ago</span>
+					          </md-card-title-text>
+					        </md-card-title>
+					      	<div class="price">₱ {{r.price}}</div>
+					      </md-card>
+					</md-grid-tile>
+					<md-grid-tile style="box-shadow:none;padding:0">
+					  	<md-button ng-click="showDialog($event)" style="height:100%;width: 100%"><i class="fa fa-plus" style="font-size:400%;color:gray"></i></md-button>
+					  </md-grid-tile>
+				 </md-grid-list>
+          </md-content>
+        </md-tab>
+        <md-tab label="How to order">
+          <md-content class="md-padding">
+            
+          </md-content>
+        </md-tab>
+        <md-tab label="Delivery Infor">
+          <md-content class="md-padding">
+            
+          </md-content>
+        </md-tab>
+      </md-tabs>
+
+
+			
+
+		</div>
+	</div>
+	<div flex ></div>
+</div>

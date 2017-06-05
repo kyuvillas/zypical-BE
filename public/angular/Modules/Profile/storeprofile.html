@@ -1,0 +1,91 @@
+<div flex layout="row"   layout-align="start start" style="padding-top: 10">
+	<div flex layout="column" layout-align="start start" style='height: 100%;margin:8' >
+		<div style="position: fixed;width: 18%;padding:0 10" layout="column">
+			<div flex layout="column" layout-align="start center" style="">
+				<h2 style="margin:0">{{shop.name}}</h2>
+				<p style="color:gray;margin: 0">@{{shop.username}}</p>
+
+				<!-- <img  src="assets/images/sample.jpg" style="object-fit: cover;height:30%;width :100%;box-shadow: 2px 2px 2px #888888;"/> -->
+				<img  src="../index.php/shop_controller/getShopImg?img=lapoche.jpg" style="object-fit: cover;height:30%;width :100%;box-shadow: 2px 2px 2px #888888;"/>
+				<md-button ng-click="" style="width: 100%" md-autofocus>
+			        All products ({{products.length}})
+			    </md-button>
+			    <md-button ng-click="" style="width: 100%">
+			        Social Media Accounts
+			    </md-button>
+			    <md-button ng-click="" style="width: 100%">
+			        How to order
+			    </md-button>
+			</div>
+		</div>
+		
+		
+		<!-- <div flex  style="height:50%;position: fixed">
+			<img  src="assets/images/sample.jpg" style="object-fit: cover;height:100;width :auto;"/>
+			 
+		</div>
+		<div flex class="test-g">asd</div> -->
+	</div>
+	<div flex="60">
+		<md-card md-theme-watch="" style="height: 1000px">
+			<md-card-header layout="row"    layout-align="space-around center">
+	          
+		          	<div>
+		          		<i class="fa fa-motorcycle"></i> SHIPMENT AVAILABLE <i class="title-secondary fa fa-check"></i>
+		          	</div> 
+		          	|
+		          	<div> 
+		          		<i class="fa fa-truck"></i> COD AVAILABLE <i class="title-secondary fa fa-check"></i>
+	          		</div>
+	        </md-card-header>
+
+	        <md-card-title>
+	          <md-card-title-text>
+	            <md-grid-list md-cols="4" md-row-height="5:6" md-gutter="3%" >
+
+				    <md-grid-tile ng-if="products.length > 0" ng-repeat="r in products track by $index" result-div class="result-item">
+					  <div >
+					  	<md-button ng-click="" style="    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;"><img src="../index.php/shop_controller/getProductImg?img={{r.imgname}}" /></md-button>
+					  </div>
+					  <md-grid-tile-footer>
+					  	<div layout="column"   layout-align="start start" class="product-title">
+					  		<div layout="row" style="width: 100%"  layout-align="space-between start">
+						  		<b>₱ {{r.price}}</b>
+						  		<i class="fa fa-truck" style="position: right;color:yellowgreen"></i>
+					  		</div>
+						    
+						    <p>{{r.name}}</p>
+						    <img src="assets/images/vendor.jpg" style="border-radius: 50%;height: 50%; width: 20%;" />
+					    </div>
+					  </md-grid-tile-footer>
+					  
+					</md-grid-tile>
+					<md-grid-tile style="box-shadow:none;padding:0">
+					  	<md-button ng-click="showDialog($event)" style="height:100%;width: 100%"><i class="fa fa-plus" style="font-size:400%;color:gray"></i></md-button>
+					  </md-grid-tile>
+
+			 </md-grid-list>
+	          </md-card-title-text>
+	      </md-card>
+	</div>
+	<div flex style="padding-right:4%; font-size: 14; ">
+		<div style="position: fixed;    width: 20%;">
+			<md-button ng-click="" style="width: 100%">
+		        SAVE STORE <i class="fa fa-check"></i>
+		    </md-button>
+			<md-card >
+	          	<span class="title-secondary small">category</span>
+	            {{shop.category}}
+		    </md-card>
+
+			<md-card >
+		       
+		        <span class="title-secondary small">about</span>
+		        {{shop.about}}
+		      </md-card>
+		</div>
+	</div>
+</div>

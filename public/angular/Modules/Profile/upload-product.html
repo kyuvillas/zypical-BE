@@ -1,0 +1,92 @@
+<md-dialog style="height:70%;width: 70% !important; " >
+<form>
+  <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="end center">
+        <h2 style="color:whitesmoke">Add a product</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()" style="color:whitesmoke">
+          <i  class="fa fa-close"/>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+
+<div layout="row" layout-align="start center">
+	<div flex="30" style="font-size:13px;padding:4% 0 0 3%; ">
+
+        <md-input-container  style="width:90%" >
+            <label>Product Name</label>
+            <input type="text" ng-model="name">
+          </md-input-container>
+          <md-input-container  style="width:90%" >
+            <label>Description</label>
+            <input type="text" ng-model="desc">
+          </md-input-container>
+          <md-input-container  style="width:90%" >
+            <label>Category</label>
+            <input type="text" ng-model="category">
+          </md-input-container>
+          <md-input-container  style="width:90%">
+            <label>Price</label>
+            <input type="text" ng-model="price">
+          </md-input-container>
+          <md-input-container  style="width:90%" >
+            <label>Delivery Method</label>
+            <input type="text" ng-model="delivery">
+          </md-input-container>
+
+
+	</div>
+	<div flex style="height:85%;padding:4%">
+      <input multiple id="products" hidden type = "file" file-model = "myFile" onchange="display()"/>
+
+		<md-grid-list md-cols="5" md-row-height="2:2" md-gutter="1%" id="output">
+				   
+			<md-grid-tile style="box-shadow:none;padding:0">
+			  	<md-button ng-click="buttonupload()" style="height:100%;width: 100%"><i class="fa fa-plus" style="font-size:400%;color:gray"></i></md-button>
+			</md-grid-tile>
+
+		 </md-grid-list>
+	</div>
+</div>
+<md-dialog-actions layout="row" layout-align="end center">
+  <md-button ng-click="upload()" md-autofocus   >
+      Add Product
+    </md-button>
+</md-dialog-actions>
+</form>
+</md-dialog>
+<script>
+
+function display(){
+    var fileUpload = document.getElementById("products"); 
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = document.getElementById("output");
+            dvPreview.innerHTML = "";
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            for (var i = 0; i < fileUpload.files.length; i++) {
+                var file = fileUpload.files[i];
+                if (regex.test(file.name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                         var picFile = event.target;
+                        var div = document.createElement("md-grid-tile");
+                        div.innerHTML = "<img class='thumb' src='"+picFile.result+"' style='object-fit: cover;height:30%;width :auto;box-shadow: 2px 2px 2px #888888;' />";
+                        dvPreview.appendChild(div);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert(file.name + " is not a valid image file.");
+                    dvPreview.innerHTML = "";
+                    return false;
+                }
+            }
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    
+};
+
+
+
+</script>

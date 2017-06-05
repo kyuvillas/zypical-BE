@@ -1,5 +1,5 @@
 /* MAIN MODULE */
-var app = angular.module('MainApplication', ['ngSanitize','zy-Auth','zy-Router', 'ngAnimate', 'ngMaterial', 'ngMessages','jQueryScrollbar', 'HUD-ContentManager', 'HUD-Factory', 'HUD-Directives', 'ang-drag-drop']); //
+var app = angular.module('MainApplication', ['ngSanitize','zy-Auth','zy-Router', 'ngAnimate', 'ngMaterial', 'jQueryScrollbar', 'HUD-ContentManager', 'HUD-Factory', 'HUD-Directives', 'ang-drag-drop']); //
 app.controller('MainController', function ($window,$rootScope,$scope,$state, $interval, $mdDialog, ConfigurableItems, DataFactory, $mdSidenav,Auth, AUTH_EVENTS,USER_ROLES) {
   // SEARCH
   $scope.search = function(key){
