@@ -1,51 +1,86 @@
-<div flex layout="column"       layout-align="start stretch"  >
-
-	<div flex layout="column"       layout-align="start stretch" style="min-height:80%;  " class="scrollbar-macosx " data-jquery-scrollbar >
-	    <div  flex layout="row" layout-align="center stretch"  >  </div>
-	    <div flex="40" layout="row" layout-align="center stretch"  >
-	    	<div flex="15"></div>
+<div flex layout="column" layout-align="start stretch">
+	<div flex="50" layout="column" layout-align="end stretch" class="scrollbar-macosx">
+	    <div  flex="40" layout="row" layout-align="center stretch">  </div>
+	    <div flex="60" layout="row" layout-align="start stretch">
+<!--	    	<div flex="15"></div>-->
 	    	<div flex="35" layout="column" layout-align="center center">
 			    	<h1 class="zy-font" id="title" flex style="font-size:500%; margin: 0 0 37px 0; ">zypical</h1>
 			    	<h3 class="zy-font" flex>house of online business</h3>
 	    	</div >
-	    	<div flex layout="column" layout-align="start stretch"   >
-	    		
-		    	<div flex="5" >
-		    		<h2 class="zy-font" style="margin:10 0 15 0 ">search 'em</h2>
-		    	</div>
-		    	<div flex  layout>
-		    		<!-- <input class="zy-input" /> -->
-		    		<md-input-container  style="width:42%">
-					  <label>search your favorite store or item</label>
-					  <input type="text" ng-model="keyword">
-					</md-input-container>
-					<button ng-click="ChangeState('search1')"><i class="fa fa-search"></i></button>
-		    	</div>
-		    	<div flex="5" >
-		    		<h2 class="zy-font" style="margin:10 0 10 0 ">shop 'em</h2>
-		    	</div>
-		    	<div flex layout>
-		    		<p style="margin-top: 25px">What can you buy for</p>
-		    		<md-input-container style=" margin: 15px 10px 0 10px;width:14%">
-					  <label>price</label>
-					  <input type="text" ng-model="price">
-					</md-input-container>
-
-		    		<p style="margin-top: 25px">pesos?</p>
-					<button><i class="fa fa-search"></i></button>
-		    	</div>
-		    	<div flex  ></div>
-	    	</div >
-
+	    	<div id="mainPanel" flex="55" layout layout-align="start start">
+                <div flex="20">
+                </div>
+                <div flex layout="column" layout-align="center start">
+                    <div flex="5"></div>
+                    <div layout>
+                        <h2 class="zy-font" style="margin:10 0 15 0 ">search 'em</h2>
+                        <md-input-container style="margin-left:30px;">
+                            <label>search your favorite store or item</label>
+                            <input type="text" ng-model="keyword">
+                        </md-input-container>
+                        <md-button id="firstSearchBtn" class="md-icon-button md-primary" aria-label="Search">
+                            <md-icon md-svg-icon="../public/assets/icons/ic_search_white_24px.svg"></md-icon>
+                        </md-button>
+<!--
+                        <div>
+                            <button ng-click="ChangeState('search1')"><i class="fa fa-search"></i></button>
+                        </div>
+-->
+                    </div>
+                    <div layout>
+                        <h2 class="zy-font" style="margin:10 0 10 0 ">shop 'em</h2>
+                        <p style="margin-left: 30px; color:white;">What can you buy for</p>
+                        <md-input-container style="width:14%; margin-top:0px;">
+                          <label></label>
+                          <input type="text" ng-model="price">
+                        </md-input-container>
+                        <p style="color:white;">php?</p>
+                        <md-button class="md-icon-button md-primary" aria-label="Search">
+                            <md-icon md-svg-icon="../public/assets/icons/ic_search_white_24px.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                
+                        
+		    	
+		    	
+		    		
+<!--					<button><i class="fa fa-search"></i></button>-->
+	    	</div>
 	    </div>
-	    <div flex layout="row" layout-align="center stretch"  ></div>
+<!--	    <div flex layout="row" layout-align="center stretch"></div>-->
 	</div>
+    
+    <div flex="50" layout>
+        <div flex="35" layout="column" layout-align="center center">
+            <div flex="15"></div>
+            <div id="popProducts" flex="70" layout layout-align="center end">
+                <h2>POPULAR PRODUCTS</h2>
+            </div>
+            <div flex="15"></div>
+        </div>
+        <div flex="35" layout="column" layout-align="center center">
+            <div flex="15"></div>
+            <div id="popStores" flex="70" layout layout-align="center end">
+                <h2>POPULAR STORES</h2>
+            </div>
+            <div flex="15"></div>
+        </div>
+        <div flex="30" layout="column" layout-align="center center">
+            <div flex="15"></div>
+            <div id="bazaar" flex="70" layout layout-align="center end">
+                <h2>BAZAAR</h2>
+            </div>
+            <div flex="15"></div>
+        </div>
+    </div>
+    
+<!--
 	<div flex="20" hud-setter height-in-percent="20" layout="row" layout-align="center center" class="footer">
 		<div style="border-right: solid whitesmoke 1px" layout="column"       layout-align="start end">
 			<p class="title-secondary">MANAGE </p>
 			<p>Y O U R  A C C O U N T </p>
 	        <button ng-click="showDialog($event,'0')">LOGIN</button>
-	        <!-- <button ng-click="try()">LOGIN</button> -->
 		</div>	
 		<div>
 			<p  class="title-secondary">SETUP </p>
@@ -58,4 +93,5 @@
             <button ng-click="logout()">LOGOUT</button>
         </div>
     </div>
+-->
 </div>

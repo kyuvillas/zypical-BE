@@ -82,73 +82,114 @@
     
     <link rel="stylesheet" href="assets/css/zypical-style.css">
     <!-- <script src="services/session.js"></script> -->
+    <style>
+        body{
+/*            background-image: url("assets/images/mainbg.jpg");*/
+            background-image: url("assets/images/mainbg3.jpeg");
+            background-size: cover;
+/*            background-repeat: no-repeat*/
+            font-family: verdana;
+        }
+        
+        #mainPanel{
+/*            background: rgba(0,0,0,0.1);*/
+            border-radius:10px;
+        }
+        
+        #mainPanel #firstSearchBtn{
+            padding-bottom:0px;
+            margin-top:5px;
+/*            background: rgba(255,255,255,0.1);*/
+        }
+        
+        #mainPanel button{
+            padding-bottom:0px;
+        }
+        
+        #mainPanel div md-input-container label{
+            color:white;
+        }
+        
+        #mainPanel div md-input-container input{
+            color:white;
+            border-color:white;
+        }
+        
+        #popProducts{
+            border-radius:5px;
+            width:70%;
+            background-image: url(assets/images/popularproducts2.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:white;
+            cursor:pointer;
+            font-family:calibri;
+        }
+        
+        #popProducts:hover{
+            opacity: 0.8;
+            transition: .2s ease-in-out;
+        }
+        
+        #popProducts:hover > h2{
+            transition: .1s ease-in-out;
+            opacity: 1;
+            font-size:28px;
+        }
+        
+        #popStores{
+            border-radius:5px;
+            width:70%;
+            background-image: url(assets/images/popularstores2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:white;
+            cursor:pointer;
+            font-family:calibri;
+        }
+        
+        #popStores:hover{
+            opacity: 0.8;
+            transition: .2s ease-in-out;
+        }
+        
+        #popStores:hover > h2{
+            transition: .1s ease-in-out;
+            opacity: 1;
+            font-size: 28px;
+        }
+        
+        #bazaar{
+            border-radius: 5px;
+            width:75%;
+            background-image: url(assets/images/bazaar2.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:white;
+            cursor: pointer;
+            font-family:calibri;
+        }
+        
+        #bazaar:hover{
+            opacity: 0.7;
+            transition: .2s ease-in-out;
+        }
+        
+        #bazaar:hover > h2{
+            transition: .1s ease-in-out;
+            opacity: 1;
+            font-size: 28px;
+        }
+        
+    </style>
 </head>
 <body layout="column" layout-align="start stretch" ng-app="MainApplication" ng-controller="MainController" >
-    <!-- CSS Templates -->
-    <hud-main-styles></hud-main-styles>
-    <!-- End of CSS Templates -->
-    
-         <div flex="10" layout="row" layout-align="start center"  class="nav-bar" ng-if="auth=='loginSuccess' && mainstate.current.name!='home'">
-            <h2 class="zy-font" style="margin-left:3% !important; " ng-click="ChangeState('home')">zypical</h2>
-
-            <md-input-container  style="width:42%">
-              <label>search your favorite store or item</label>
-              <input type="text"  ng-model="key">
-            </md-input-container>
-
-            <button ng-click="search(key)"><i class="fa fa-search"></i></button>
-
-
-            <div flex layout="row" layout-align="end center" style="margin-right:2%">
-           
-                <button ng-if="isLoggedIn==false" ng-click="setTempCurrentUser()">Login</button>
-               
-                <button ng-if="isLoggedIn==false" ng-click="">Sign up</button>{{isLoggedIn}}
-                <!-- <a href="" style="color:whitesmoke !important"><i class="fa fa-user fa-2x"></i></a> -->
-
-            <md-menu md-offset="0 40" md-position-mode="target-right target" ng-if="isLoggedIn">
-                  <md-button aria-label="Open menu" class="md-icon-button" ng-mouseenter="$mdOpenMenu()">
-                    <!-- <md-icon md-menu-origin="" md-svg-icon="call:textsms"></md-icon> -->
-                    <md-icon class="fa fa-bell fa-2x" md-menu-origin=""></md-icon>
-                  </md-button>
-                  <md-menu-content width="4" ng-mouseleave="$mdMenu.close()">
-                        <md-menu-item>
-                          <md-button> <i class="fa fa-user fa-2x"></i> qwe </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                          <md-button> Business </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                          <md-button> Logout </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-
-                <md-menu md-offset="50 40" ng-if="isLoggedIn">
-                  <md-button  ng-mouseenter="$mdOpenMenu()">
-                    <md-icon class="fa fa-user fa-2x" md-menu-origin=""></md-icon>
-                  </md-button>
-                  <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
-                    <md-menu-item>
-                      <md-button ng-click="ChangeState('userprofile')"> <md-icon class="fa fa-user"></md-icon> Profile </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                      <md-button> Business </md-button>
-                    </md-menu-item>
-                    <md-menu-item>
-                      <md-button ng-click="logout()"> Logout </md-button>
-                    </md-menu-item>
-                </md-menu-content>
-            </md-menu>
-
-
-            </div>
+        <div flex layout class="scrollbar-macosx">
+            <div ui-view flex></div>
         </div>
-        <div flex layout class="scrollbar-macosx " data-jquery-scrollbar style="background-color: rgb(250,250,250);" >
-            <div ui-view flex ></div>
-            
-        </div>
+<!--
         <div flex="5" hud-setter height-in-percent="20" layout layout-align="end center"  class="footer" ng-if="auth=='loginSuccess'">
         </div>
+-->
 </body>
 </html>
