@@ -47,6 +47,15 @@
     <script src="assets/plugins/Highchart/highcharts-ng.js"></script>                               <!-- Highcharts Angular-->
     <script src="assets/plugins/Lodash/loadash.js"></script>                                        <!-- Loadash -->
     <script src="assets/plugins/ng-draggable/ngdrag.js"></script>                                   <!-- Drag&drop -->
+    <script src="assets/plugins/AngularScroll/module.js"></script>                                  <!-- Angular Scroll -->
+    <script src="assets/plugins/AngularScroll/helpers.js"></script>                                 <!-- Angular Scroll -->
+    <script src="assets/plugins/AngularScroll/directives/scroll-container.js"></script>
+    <script src="assets/plugins/AngularScroll/directives/scrollspy.js"></script>
+    <script src="assets/plugins/AngularScroll/directives/smooth-scroll.js"></script>
+    <script src="assets/plugins/AngularScroll/directives/spy-context.js"></script>
+    <script src="assets/plugins/AngularScroll/services/request-animation.js"></script>
+    <script src="assets/plugins/AngularScroll/services/scroll-container-api.js"></script>
+    <script src="assets/plugins/AngularScroll/services/spy-api.js"></script>
     <!-------------------->
     
     <!-- --------------------------------------- Shared Modules --------------------------------------- -->
@@ -179,6 +188,14 @@
             transition: .1s ease-in-out;
             opacity: 1;
             font-size: 32px;
+        }
+        
+        .whiteCircle{
+            background-color:white; 
+            border-radius:20px; 
+            width:8px; 
+            height:8px; 
+            margin-bottom:7px;
         }
         
     </style>

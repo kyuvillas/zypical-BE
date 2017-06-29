@@ -1,58 +1,79 @@
-<div flex layout="column" >
-	<div id="upperPanel" flex="60" layout>
-        <div flex="25"></div>
-        <div flex="50" layout="column" layout-align="end stretch">
-            <div layout="column" layout-align="center center">
-                <img src="../public/assets/images/zypical-logo-white.png" width="550">
-                <p style="font-size:30px; margin-top:-60px; font-family:'calibri light'; color:white; margin-bottom:5px;">
-                    Find the best products and your favorite online stores
-                </p>
+<div class="scrollArea" style="position:fixed; right:20px; top:50%;">
+    <div class="whiteCircle"></div>
+    <div class="whiteCircle"></div>
+    <div class="whiteCircle"></div>
+    <div class="whiteCircle"></div>
+</div>
+
+<div flex layout="column" ng-controller="HomeController as h">
+    <div id="upperMostArea" layout="column">
+        <div id="upperPanel" flex="60" layout>
+            <div flex="25"></div>
+            <div flex="50" layout="column" layout-align="end stretch">
+                <div layout="column" layout-align="center center">
+                    <img src="../public/assets/images/zypical-logo-white.png" width="550">
+                    <p style="font-size:30px; margin-top:-60px; font-family:'calibri light'; color:white; margin-bottom:5px;">
+                        Find the best products and your favorite online stores
+                    </p>
+                </div>
+
+                <div layout layout-gt-sm="row">
+                    <md-input-container class="md-block">
+                        <label>Filter</label>
+                        <md-select ng-model="filter">
+                            <md-option>All</md-option>
+                            <md-option>Store</md-option>
+                            <md-option>Product</md-option>
+                            <md-option>Worth</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Search</label>
+                        <input>
+                    </md-input-container>
+                    <md-button class="md-icon-button md-primary" aria-label="Search" style="margin-top:10px;">
+                        <md-icon md-svg-icon="../public/assets/icons/ic_search_white_24px.svg"></md-icon>
+                    </md-button>
+                </div>
             </div>
-            
-            <div layout layout-gt-sm="row">
-                <md-input-container class="md-block">
-                    <label>Filter</label>
-                    <md-select ng-model="filter">
-                        <md-option>All</md-option>
-                        <md-option>Store</md-option>
-                        <md-option>Product</md-option>
-                        <md-option>Worth</md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Search</label>
-                    <input>
-                </md-input-container>
-                <md-button class="md-icon-button md-primary" aria-label="Search" style="margin-top:10px;">
-                    <md-icon md-svg-icon="../public/assets/icons/ic_search_white_24px.svg"></md-icon>
-                </md-button>
+            <div flex="25"></div>
+        </div>
+
+        <div flex="40" layout>
+            <div flex="35" layout="column" layout-align="center center">
+                <div flex="15"></div>
+                <div id="popProducts" flex="70" layout layout-align="center end" ng-click="h.goToArea('popularStoresArea')">
+                    <h2>POPULAR PRODUCTS</h2>
+                </div>
+                <div flex="15"></div>
+            </div>
+            <div flex="35" layout="column" layout-align="center center">
+                <div flex="15"></div>
+                <div id="popStores" flex="70" layout layout-align="center end">
+                    <h2>POPULAR STORES</h2>
+                </div>
+                <div flex="15"></div>
+            </div>
+            <div flex="30" layout="column" layout-align="center center">
+                <div flex="15"></div>
+                <div id="bazaar" flex="70" layout layout-align="center end">
+                    <h2>BAZAAR</h2>
+                </div>
+                <div flex="15"></div>
             </div>
         </div>
-        <div flex="25"></div>
-	</div>
-    
-    <div flex="40" layout>
-        <div flex="35" layout="column" layout-align="center center">
-            <div flex="15"></div>
-            <div id="popProducts" flex="70" layout layout-align="center end">
-                <h2>POPULAR PRODUCTS</h2>
-            </div>
-            <div flex="15"></div>
-        </div>
-        <div flex="35" layout="column" layout-align="center center">
-            <div flex="15"></div>
-            <div id="popStores" flex="70" layout layout-align="center end">
-                <h2>POPULAR STORES</h2>
-            </div>
-            <div flex="15"></div>
-        </div>
-        <div flex="30" layout="column" layout-align="center center">
-            <div flex="15"></div>
-            <div id="bazaar" flex="70" layout layout-align="center end">
-                <h2>BAZAAR</h2>
-            </div>
-            <div flex="15"></div>
-        </div>
+    </div>
+    <div id="popularStoresArea">
+        <h1>POPULAR STORES AREA MADAFAKA</h1>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h1>ENDING FOOL</h1>
     </div>
     
 <!--
