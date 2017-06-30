@@ -55,7 +55,7 @@
     <script src="assets/plugins/AngularScroll/directives/spy-context.js"></script>
     <script src="assets/plugins/AngularScroll/services/request-animation.js"></script>
     <script src="assets/plugins/AngularScroll/services/scroll-container-api.js"></script>
-    <script src="assets/plugins/AngularScroll/services/spy-api.js"></script>
+    <script src="assets/plugins/AngularScroll/services/spy-api.js"></script>                        <!-- Angular Scroll -->
     <!-------------------->
     
     <!-- --------------------------------------- Shared Modules --------------------------------------- -->
@@ -195,7 +195,14 @@
             border-radius:20px; 
             width:8px; 
             height:8px; 
-            margin-bottom:7px;
+            margin-bottom:9px;
+            transition: 0.1s ease-in-out;
+        }
+        
+        .whiteCircle.active{
+            width:13px;
+            height:13px;
+            transition: 0.1s ease-in-out;
         }
         
     </style>

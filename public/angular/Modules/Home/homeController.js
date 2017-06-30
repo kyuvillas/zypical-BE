@@ -1,4 +1,4 @@
-app.controller('HomeController', function ($location) {
+app.controller('HomeController', function ($location, $document) {
     var h = this;
     
 //    h.SVG = ConfigurableItems.SVG;
@@ -9,8 +9,10 @@ app.controller('HomeController', function ($location) {
 //    }
 
     h.goToArea = function(area){
-        $location.hash(area);
-        $anchorScroll();
+        var chosenElement = angular.element(document.getElementById(area));
+        $document.scrollToElementAnimated(chosenElement, 0, 1000);
+//        $location.hash(area);
+//        $anchorScroll();
     }
 
 //    h.openMenu = function($mdMenu, ev) {

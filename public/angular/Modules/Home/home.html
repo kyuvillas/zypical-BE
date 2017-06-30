@@ -1,8 +1,11 @@
 <div class="scrollArea" style="position:fixed; right:20px; top:50%;">
-    <div class="whiteCircle"></div>
-    <div class="whiteCircle"></div>
-    <div class="whiteCircle"></div>
-    <div class="whiteCircle"></div>
+    <center>
+        <div class="whiteCircle" href="#popularStoresArea" du-scrollspy></div>
+        <div class="whiteCircle" du-scrollspy></div>
+        <div class="whiteCircle" du-scrollspy></div>
+        <div class="whiteCircle" du-scrollspy></div>
+    </center>
+        
 </div>
 
 <div flex layout="column" ng-controller="HomeController as h">
@@ -49,7 +52,7 @@
             </div>
             <div flex="35" layout="column" layout-align="center center">
                 <div flex="15"></div>
-                <div id="popStores" flex="70" layout layout-align="center end">
+                <div id="popStores" flex="70" layout layout-align="center end" ng-click="h.goToArea('popularProductsArea')">
                     <h2>POPULAR STORES</h2>
                 </div>
                 <div flex="15"></div>
@@ -65,6 +68,35 @@
     </div>
     <div id="popularStoresArea">
         <h1>POPULAR STORES AREA MADAFAKA</h1>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h1>ENDING FOOL</h1>
+    </div>
+    
+    <div id="popularProductsArea">
+        <h1>POPULAR PRODUCTS AREA</h1>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <br/>
         <br/>
         <br/>
