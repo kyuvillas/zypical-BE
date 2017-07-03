@@ -1,11 +1,10 @@
 <div class="scrollArea" style="position:fixed; right:20px; top:50%;">
     <center>
-        <div class="whiteCircle" href="#popularStoresArea" du-scrollspy></div>
-        <div class="whiteCircle" du-scrollspy></div>
-        <div class="whiteCircle" du-scrollspy></div>
-        <div class="whiteCircle" du-scrollspy></div>
+        <div class="circleIndicator" href="#upperMostArea" du-scrollspy></div>
+        <div class="circleIndicator" href="#popularStoresArea" du-scrollspy></div>
+        <div class="circleIndicator" href="#popularProductsArea" du-scrollspy></div>
+        <div class="circleIndicator" du-scrollspy></div>
     </center>
-        
 </div>
 
 <div flex layout="column" ng-controller="HomeController as h">
@@ -39,7 +38,11 @@
                     </md-button>
                 </div>
             </div>
-            <div flex="25"></div>
+            <div flex="20" layout layout-align="end start">
+                <md-button class="md-raised zypicalButton">SIGN UP</md-button>
+                <md-button class="md-raised zypicalButton" ng-click="h.showLogInDialog($event)">LOG IN</md-button>
+            </div>
+            <div flex="5"></div>
         </div>
 
         <div flex="40" layout>
@@ -67,7 +70,7 @@
         </div>
     </div>
     <div id="popularStoresArea">
-        <h1>POPULAR STORES AREA MADAFAKA</h1>
+        <h1>POPULAR STORES AREA</h1>
         <br/>
         <br/>
         <br/>
@@ -84,7 +87,7 @@
         <br/>
         <br/>
         <br/>
-        <h1>ENDING FOOL</h1>
+        <h1>END</h1>
     </div>
     
     <div id="popularProductsArea">
@@ -105,7 +108,7 @@
         <br/>
         <br/>
         <br/>
-        <h1>ENDING FOOL</h1>
+        <h1>END</h1>
     </div>
     
 <!--

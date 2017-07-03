@@ -73,18 +73,22 @@
     <script type="text/javascript" src="angular/Shared/zyRouter.js"></script>
     <!-- Auth -->
     <!-- <script type="text/javascript" src="angular/Shared/auth.js"></script> -->
+    
+    <!-- --------------------------------------- Shared Modules --------------------------------------- -->
+    <!-- Home Controller -->
+    <script type="text/javascript" src="angular/Modules/Home/home.js"></script>
+    <script type="text/javascript" src="angular/Modules/Home/homeController.js"></script>
+<!--
+    <script type="text/javascript" src="angular/Modules/Search/searchController.js"></script>
+    <script type="text/javascript" src="angular/Modules/Profile/Store/storeprofileController.js"></script>
+    <script type="text/javascript" src="angular/Modules/Profile/User/userprofileController.js"></script>
+    <script type="text/javascript" src="angular/Modules/Profile/User/Shops/shopsController.js"></script>
+-->
+    
     <!-- Main Application -->
     <script type="text/javascript" src="angular/main.js"></script>
 
-    <!-- --------------------------------------- Shared Modules --------------------------------------- -->
-    <!-- Home Controller -->
-    <script type="text/javascript" src="angular/Modules/Home/homeController.js"></script>
-    <script type="text/javascript" src="angular/Modules/Search/searchController.js"></script>
-    <script type="text/javascript" src="angular/Modules/Profile/Store/storeprofileController.js"></script> 
-
-    <!-- User Controllers -->
-    <script type="text/javascript" src="angular/Modules/Profile/User/userprofileController.js"></script>
-    <script type="text/javascript" src="angular/Modules/Profile/User/Shops/shopsController.js"></script>
+    
 
 
     <!-- Zypical CSS & JS -->
@@ -92,14 +96,6 @@
     <link rel="stylesheet" href="assets/css/zypical-style.css">
     <!-- <script src="services/session.js"></script> -->
     <style>
-        body{
-            
-/*            background-image: url("assets/images/mainbg3.jpeg");*/
-/*            background-size: cover;*/
-/*            background-repeat: no-repeat*/
-            font-family: calibri light;
-        }
-        
         
         #upperPanel{
             background-image: url("assets/images/mainbg.jpg");
@@ -190,19 +186,34 @@
             font-size: 32px;
         }
         
-        .whiteCircle{
-            background-color:white; 
+        .circleIndicator{
+            background-color:gray; 
             border-radius:20px; 
             width:8px; 
             height:8px; 
             margin-bottom:9px;
             transition: 0.1s ease-in-out;
+            border:solid;
+            border-width:1px;
+            border-color:gray;
         }
         
-        .whiteCircle.active{
+        .circleIndicator.active{
+            background-color: white;
             width:13px;
             height:13px;
             transition: 0.1s ease-in-out;
+        }
+        
+        .zypicalButton{
+            border:solid;
+            border-color:gray;
+            border-width:1px;
+            color:gray;
+        }
+        
+        .zypicalButton:hover{
+            background-color:#ECECEC;
         }
         
     </style>
